@@ -1,0 +1,21 @@
+{
+  "title": "GitHub Developer & OSS Talent Lead Enricher Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "targets": {
+      "title": "GitHub Usernames or Profile URLs",
+      "type": "array",
+      "description": "List of GitHub usernames (e.g. 'sindresorhus') or profile URLs.",
+      "editor": "stringList",
+      "default": [
+        "sindresorhus",
+        "shadcn"
+      ],
+      "prefill": [
+        "sindresorhus",
+        "shadcn"
+      ]
+    }
+  }
+}
