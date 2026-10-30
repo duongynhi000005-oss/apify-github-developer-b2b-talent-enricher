@@ -1,0 +1,111 @@
+{
+  "actorSpecification": 1,
+  "name": "github-developer-b2b-talent-enricher",
+  "title": "GitHub Developer, Maintainer & AI/OSS Talent Lead Enricher",
+  "description": "Enriches GitHub usernames or profile URLs into actionable recruiting and DevTools B2B leads: extracts public profile & commit patch emails, company, location, personal website, X/Twitter, top programming languages, total stars, hireable status, and a 0-100 Technical Talent Score.",
+  "version": "1.0",
+  "meta": {
+    "templateId": "js-start"
+  },
+  "input": "./input_schema.json",
+  "dockerfile": "./Dockerfile",
+  "output": {
+    "actorOutputSchemaVersion": 1,
+    "title": "GitHub Developer, Maintainer & AI/OSS Talent Lead Enricher Output",
+    "description": "Enriches GitHub usernames or profile URLs into actionable recruiting and DevTools B2B leads: extracts public profile & commit patch emails, company, location, personal website, X/Twitter, top programming languages, total stars, hireable status, and a 0-100 Technical Talent Score.",
+    "type": "object",
+    "properties": {
+      "results": {
+        "type": "string",
+        "title": "Enriched Dataset Items",
+        "template": "{{links.apiDefaultDatasetUrl}}/items"
+      }
+    }
+  },
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "GitHub Developer, Maintainer & AI/OSS Talent Lead Enricher Dataset",
+      "description": "Enriches GitHub usernames or profile URLs into actionable recruiting and DevTools B2B leads: extracts public profile & commit patch emails, company, location, personal website, X/Twitter, top programming languages, total stars, hireable status, and a 0-100 Technical Talent Score.",
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "username",
+              "fullName",
+              "emails",
+              "company",
+              "topLanguages",
+              "talentScore"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "username": {
+                "label": "GitHub Username",
+                "format": "text"
+              },
+              "fullName": {
+                "label": "Full Name",
+                "format": "text"
+              },
+              "emails": {
+                "label": "Verified Emails",
+                "format": "text"
+              },
+              "company": {
+                "label": "Company",
+                "format": "text"
+              },
+              "topLanguages": {
+                "label": "Top Languages",
+                "format": "text"
+              },
+              "talentScore": {
+                "label": "Talent Score (0-100)",
+                "format": "text"
+              }
+            }
+          }
+        }
+      },
+      "fields": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "title": "GitHub Username",
+            "description": "GitHub Username"
+          },
+          "fullName": {
+            "type": "string",
+            "title": "Full Name",
+            "description": "Full Name"
+          },
+          "emails": {
+            "type": "array",
+            "title": "Verified Emails",
+            "description": "Verified Emails"
+          },
+          "company": {
+            "type": "string",
+            "title": "Company",
+            "description": "Company"
+          },
+          "topLanguages": {
+            "type": "array",
+            "title": "Top Languages",
+            "description": "Top Languages"
+          },
+          "talentScore": {
+            "type": "integer",
+            "title": "Talent Score (0-100)",
+            "description": "Talent Score (0-100)"
+          }
+        }
+      }
+    }
+  }
+}
